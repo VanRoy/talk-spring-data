@@ -1,4 +1,4 @@
-= Spring Data : One API to rule them all
+= Spring Data : Une API quinze possibilités
 Julien Roy {nbsp}{nbsp}-{nbsp}{nbsp} http://github.com/vanroy
 2016-12-23
 :revnumber: {project-version}
@@ -20,7 +20,7 @@ ifndef::sourcedir[:sourcedir: ../java]
 
 [%step]
 * API commune
-* Un set de fonction CRUD
+* Implémentation CRUD
 * Requétes dynamique
 * Mapping des objects
 * Gestion des spécificités
@@ -31,6 +31,9 @@ ifndef::sourcedir[:sourcedir: ../java]
 * KeyValue
 * MongoDB
 * LDAP
+
+== Backend Pivotal
+
 * Redis
 * Apache Cassandra
 * Apache Solr
@@ -65,6 +68,8 @@ ifndef::sourcedir[:sourcedir: ../java]
 * Support programmation reactive
 * Compatible : Reactor, RxJava
 * Backends : MongoDB, Cassandra, Redis
+
+== Questions
 
 
 == Speaker Notes
