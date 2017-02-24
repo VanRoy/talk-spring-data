@@ -1,0 +1,36 @@
+package com.github.vanroy.springdata.rest;
+
+import java.util.Arrays;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+
+import com.github.vanroy.springdata.rest.model.Person;
+import com.github.vanroy.springdata.rest.repository.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+
+	@Autowired
+	PersonRepository personRepository;
+
+	static List<Person> PERSONS = Arrays.asList(
+        new Person("Homer", "Simpson", 42),
+        new Person("Abraham", "Simpson", 78),
+        new Person("Ned", "Flanders", 46),
+        new Person("Barney", "Gumble", 39),
+        new Person("Lisa", "Simpson", 8)
+    );
+
+	@PostConstruct
+	void init() {
+		personRepository.save(PERSONS);
+	}
+}

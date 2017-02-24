@@ -1,0 +1,19 @@
+plugins {
+	id 'org.springframework.boot' version '1.5.1.RELEASE'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+    compile('com.fasterxml.jackson.core:jackson-databind')
+
+	compile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
+
+	compileOnly('org.projectlombok:lombok')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}

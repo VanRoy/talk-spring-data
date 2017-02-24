@@ -59,8 +59,8 @@ ifndef::sourcedir[:sourcedir: ../java]
 == Bonus
 
 * Repository populators
-* Querydsl support
 * Audit
+* Querydsl support
 * Specifications ( JPA 2 criteria )
 
 == Nouveautés

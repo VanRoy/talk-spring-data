@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Persons</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+    <script src="/webjars/jquery/3.1.1-1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1>Spring Data Reactive demo</h1>
+    </div>
+    <div class="row">
+        <table class="table table-condensed table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+            </tr>
+            </thead>
+            <tbody id="persons">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    var connect = function () {
+        var source = new EventSource('/persons');
+        source.addEventListener('open', function (e) {
+            console.log('connected');
+        });
+        source.addEventListener('message', function (e) {
+            console.log(e.data);
+            var message = JSON.parse(e.data);
+            var outMesage = $(
+                '<tr>' +
+                '  <td>' + message.firstName + '</td>' +
+                '  <td>' + message.lastName + '</td>' +
+                '  <td>' + message.age + '</td>' +
+                '</tr>'
+            );
+            $('#persons').prepend(outMesage);
+        }, false);
+        source.addEventListener('error', function (e) {
+            if (e.readyState == EventSource.CLOSED) {
+                connected = false;
+                connect();
+            }
+        }, false);
+    };
+
+    connect();
+</script>
+</div>
+</body>
+</html>

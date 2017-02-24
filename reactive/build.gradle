@@ -1,0 +1,44 @@
+buildscript {
+  ext {
+    springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+  }
+  repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/milestone" }
+    maven { url "http://repo.spring.io/snapshot" }
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+
+repositories {
+  mavenCentral()
+  maven { url "https://repo.spring.io/snapshot" }
+  maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+
+  compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+  compile('org.springframework.boot:spring-boot-starter-web') {
+    exclude module: 'spring-boot-starter-tomcat'
+  }
+  compile('org.springframework.boot:spring-boot-starter-undertow')
+  compile('org.mongodb:mongodb-driver-reactivestreams')
+
+  compile('org.webjars:jquery:3.1.1-1')
+  compile('org.webjars:bootstrap:3.3.7-1')
+
+  //    compile('com.fasterxml.jackson.core:jackson-databind')
+
+  // compile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
+
+  compileOnly('org.projectlombok:lombok')
+
+  testCompile('org.springframework.boot:spring-boot-starter-test')
+}

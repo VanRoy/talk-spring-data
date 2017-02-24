@@ -1,0 +1,32 @@
+[
+  {
+    "_class": "com.github.vanroy.springdata.populator.model.Person",
+    "firstName": "Simpson",
+    "lastName": "Homer",
+    "age": 42
+  },
+  {
+    "_class": "com.github.vanroy.springdata.populator.model.Person",
+    "firstName": "Abraham",
+    "lastName": "Simpson",
+    "age": 78
+  },
+  {
+    "_class": "com.github.vanroy.springdata.populator.model.Person",
+    "firstName": "Ned",
+    "lastName": "Flanders",
+    "age": 46
+  },
+  {
+    "_class": "com.github.vanroy.springdata.populator.model.Person",
+    "firstName": "Barney",
+    "lastName": "Gumble",
+    "age": 39
+  },
+  {
+    "_class": "com.github.vanroy.springdata.populator.model.Person",
+    "firstName": "Homer",
+    "lastName": "Lisa",
+    "age": 8
+  }
+]

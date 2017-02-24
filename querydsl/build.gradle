@@ -1,0 +1,23 @@
+plugins {
+  id 'org.springframework.boot' version '1.5.1.RELEASE'
+  id 'com.ewerk.gradle.plugins.querydsl' version '1.0.8'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+
+  compile('org.springframework.boot:spring-boot-starter-data-jpa')
+  compile('com.querydsl:querydsl-jpa:4.1.4')
+  compile('com.querydsl:querydsl-apt:4.1.4')
+
+  compile('com.h2database:h2')
+
+  testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+querydsl {
+  jpa = true
+}
