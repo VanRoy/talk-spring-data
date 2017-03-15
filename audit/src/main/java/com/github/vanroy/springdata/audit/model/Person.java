@@ -1,7 +1,5 @@
 package com.github.vanroy.springdata.audit.model;
 
-import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;

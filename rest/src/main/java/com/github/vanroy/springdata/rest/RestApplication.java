@@ -2,7 +2,6 @@ package com.github.vanroy.springdata.rest;
 
 import java.util.Arrays;
 import java.util.List;
-
 import javax.annotation.PostConstruct;
 
 import com.github.vanroy.springdata.rest.model.Person;
@@ -12,16 +11,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class RestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(RestApplication.class, args);
 	}
 
 	@Autowired
 	PersonRepository personRepository;
 
-	static List<Person> PERSONS = Arrays.asList(
+	static List<Person> SIMPSONS = Arrays.asList(
         new Person("Homer", "Simpson", 42),
         new Person("Abraham", "Simpson", 78),
         new Person("Ned", "Flanders", 46),
@@ -31,6 +30,6 @@ public class Application {
 
 	@PostConstruct
 	void init() {
-		personRepository.save(PERSONS);
+		personRepository.save(SIMPSONS);
 	}
 }

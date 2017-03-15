@@ -1,5 +1,8 @@
 package com.github.vanroy.springdata.basics;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.github.vanroy.springdata.basics.model.Person;
 import com.github.vanroy.springdata.basics.output.ConsoleOutput;
 import com.github.vanroy.springdata.basics.repository.PersonRepository;
@@ -9,7 +12,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application implements CommandLineRunner {
+public class BasicApplication implements CommandLineRunner {
 
     Person HOMER = new Person("Homer", "Simpson", 42);
     Person ABRAHAM = new Person("Abraham", "Simpson", 78);
@@ -17,17 +20,15 @@ public class Application implements CommandLineRunner {
     Person BARNEY = new Person("Barney", "Gumble", 39);
     Person LISA = new Person("Lisa", "Simpson", 8);
 
+    List<Person> SIMPSONS = Arrays.asList(HOMER, ABRAHAM, NED, BARNEY, LISA);
+
     @Autowired
     private PersonRepository personRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
 
-	    personRepository.save(HOMER);
-	    personRepository.save(ABRAHAM);
-	    personRepository.save(NED);
-	    personRepository.save(BARNEY);
-	    personRepository.save(LISA);
+	    personRepository.save(SIMPSONS);
 
         ConsoleOutput.write(this.personRepository.findAll());
 
@@ -39,6 +40,6 @@ public class Application implements CommandLineRunner {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(BasicApplication.class, args);
 	}
 }

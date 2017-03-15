@@ -2,7 +2,6 @@ package com.github.vanroy.springdata.audit;
 
 import java.util.Arrays;
 import java.util.List;
-
 import javax.annotation.PostConstruct;
 
 import com.github.vanroy.springdata.audit.model.Person;
@@ -16,10 +15,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
-public class Application {
+public class AuditApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(AuditApplication.class, args);
     }
 
     @Bean
@@ -30,7 +29,7 @@ public class Application {
     @Autowired
     PersonRepository personRepository;
 
-    static List<Person> PERSONS = Arrays.asList(
+    static List<Person> SIMPSONS = Arrays.asList(
             new Person("Homer", "Simpson", 42),
             new Person("Abraham", "Simpson", 78),
             new Person("Ned", "Flanders", 46),
@@ -40,6 +39,6 @@ public class Application {
 
     @PostConstruct
     void init() {
-        personRepository.save(PERSONS);
+        personRepository.save(SIMPSONS);
     }
 }

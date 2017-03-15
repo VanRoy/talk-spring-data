@@ -1,4 +1,4 @@
-package com.github.vanroy.springdata.reactive;
+package com.github.vanroy.springdata.querydsl;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ApplicationTests {
+public class QueryDslApplicationTests {
 
 	@Test
 	public void contextLoads() {

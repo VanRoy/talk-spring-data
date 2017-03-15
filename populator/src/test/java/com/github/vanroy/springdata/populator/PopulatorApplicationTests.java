@@ -1,15 +1,15 @@
-package com.github.vanroy.springdata.cassandra;
+package com.github.vanroy.springdata.populator;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
-public class ApplicationTests {
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class PopulatorApplicationTests {
 
-//	@Test
+	@Test
 	public void contextLoads() {
 	}
 

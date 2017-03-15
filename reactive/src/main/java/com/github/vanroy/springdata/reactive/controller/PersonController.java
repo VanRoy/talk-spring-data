@@ -1,33 +1,27 @@
 package com.github.vanroy.springdata.reactive.controller;
 
-import java.io.IOException;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentSkipListSet;
-
+import java.util.List;
 import javax.annotation.PostConstruct;
 
 import com.github.vanroy.springdata.reactive.model.Person;
 import com.github.vanroy.springdata.reactive.repository.PersonRepository;
 import com.github.vanroy.springdata.reactive.service.NotificationService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import reactor.core.publisher.Flux;
 
 /**
  * Controller to expose new Person with SSE.
  *
  * @author Julien Roy
  */
-@Controller
+@RestController
 @RequestMapping("/persons")
 public class PersonController {
 
@@ -53,6 +47,18 @@ public class PersonController {
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody Person p) {
         repository.save(p).block();
+    }
+
+    @GetMapping(path = "/search")
+    public List<Person> search() {
+        return
+            Flux.merge(
+                repository.findByAgeGreaterThan(30),
+                repository.findByFirstName("Brian")
+            )
+            .distinct()
+            .collectList()
+            .block();
     }
 
 }

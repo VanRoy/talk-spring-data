@@ -12,19 +12,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.domain.Specification;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-
-import static antlr.build.ANTLR.root;
-import static javafx.scene.input.KeyCode.T;
-import static org.springframework.data.jpa.domain.Specifications.where;
+import static org.springframework.data.jpa.domain.Specifications.*;
 
 @SpringBootApplication
-public class Application implements CommandLineRunner {
+public class SpecificationsApplication implements CommandLineRunner {
 
-    static List<Person> PERSONS = Arrays.asList(
+    static List<Person> SIMPSONS = Arrays.asList(
             new Person("Homer", "Simpson", 42),
             new Person("Abraham", "Simpson", 78),
             new Person("Ned", "Flanders", 46),
@@ -36,7 +29,7 @@ public class Application implements CommandLineRunner {
     private PersonRepository personRepository;
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(SpecificationsApplication.class, args);
     }
 
     private static Specification<Person> personIsAdult() {
@@ -50,7 +43,7 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        personRepository.save(PERSONS);
+        personRepository.save(SIMPSONS);
 
         ConsoleOutput.write(
             this.personRepository.findAll(

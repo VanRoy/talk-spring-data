@@ -26,8 +26,6 @@ public class ConsoleOutput {
     public static void writeBanner() {
         System.out.println();
         System.out.println(AnsiOutput.toString(AnsiColor.GREEN , "-------------------------------" ));
-//        System.out.println(AnsiOutput.toString(AnsiColor.GREEN , "| *************************** |" ));
-//        System.out.println(AnsiOutput.toString(AnsiColor.GREEN , "-------------------------------" ));
         System.out.println();
     }
 }

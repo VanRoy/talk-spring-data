@@ -12,7 +12,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.data.repository.init.Jackson2RepositoryPopulatorFactoryBean;
 
 @SpringBootApplication
-public class Application implements CommandLineRunner {
+public class PopulatorApplication implements CommandLineRunner {
 
     @Bean
     Jackson2RepositoryPopulatorFactoryBean repositoryPopulator() {
@@ -30,6 +30,6 @@ public class Application implements CommandLineRunner {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(PopulatorApplication.class, args);
 	}
 }

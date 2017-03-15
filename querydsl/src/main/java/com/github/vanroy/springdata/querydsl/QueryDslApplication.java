@@ -14,9 +14,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application implements CommandLineRunner {
+public class QueryDslApplication implements CommandLineRunner {
 
-    static List<Person> PERSONS = Arrays.asList(
+    static List<Person> SIMPSONS = Arrays.asList(
             new Person("Homer", "Simpson", 42),
             new Person("Abraham", "Simpson", 78),
             new Person("Ned", "Flanders", 46),
@@ -30,7 +30,7 @@ public class Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-	    personRepository.save(PERSONS);
+	    personRepository.save(SIMPSONS);
 
         Predicate predicate = QPerson.person.firstName.equalsIgnoreCase("Barney");
 
@@ -38,6 +38,6 @@ public class Application implements CommandLineRunner {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(QueryDslApplication.class, args);
 	}
 }
