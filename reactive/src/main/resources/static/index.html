@@ -28,7 +28,7 @@
 
 <script>
     var connect = function () {
-        var source = new EventSource('/persons');
+        var source = new EventSource('/sse');
         source.addEventListener('open', function (e) {
             console.log('connected');
         });

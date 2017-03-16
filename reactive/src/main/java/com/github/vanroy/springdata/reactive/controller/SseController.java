@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import reactor.core.publisher.Flux;
 
 /**
@@ -21,38 +22,18 @@ import reactor.core.publisher.Flux;
  * @author Julien Roy
  */
 @RestController
-@RequestMapping("/persons")
-public class PersonController {
+@RequestMapping("/sse")
+public class SseController {
 
-    private final PersonRepository repository;
     private final NotificationService<Person> notificationService;
 
-    PersonController(PersonRepository repository, NotificationService<Person> notificationService) {
-        this.repository = repository;
+    SseController(NotificationService<Person> notificationService) {
         this.notificationService = notificationService;
     }
 
-    @PostConstruct
-    public void startStreaming() {
-        repository.findBy().doOnNext(notificationService::sendMessage).subscribe();
-    }
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody Person p) {
-        repository.save(p).block();
-    }
-
     @GetMapping
-    public List<Person> search() {
-        return
-            Flux.merge(
-                repository.findByAgeGreaterThan(30),
-                repository.findByFirstName("Brian")
-            )
-            .distinct()
-            .collectList()
-            .block();
+    public SseEmitter register() {
+        return notificationService.registerClient();
     }
 
 }
