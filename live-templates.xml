@@ -1,0 +1,50 @@
+<templateSet group="SpringData">
+  <template name="co" value="ConsoleOutput.write($END$);" description="Console Output" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="prs" value="personRepository.save(SIMPSONS);" description="Person repository save" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_EXPRESSION" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="prfbln" value="this.personRepository.findByLastNameIgnoreCaseAndAgeGreaterThan(&quot;simpson&quot;, 20)" description="Person repository findByLastName..." toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_EXPRESSION" value="true" />
+    </context>
+  </template>
+  <template name="casq" value="@org.springframework.data.cassandra.repository.Query(value&quot;SELECT firstName, age FROM person WHERE lastName = ?0&quot;)" description="Cassandra Query" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="prp" value="@org.springframework.context.annotation.Bean&#10;    org.springframework.data.repository.init.Jackson2RepositoryPopulatorFactoryBean repositoryPopulator() {&#10;        org.springframework.data.repository.init.Jackson2RepositoryPopulatorFactoryBean factoryBean = new org.springframework.data.repository.init.Jackson2RepositoryPopulatorFactoryBean();&#10;        factoryBean.setResources(new org.springframework.core.io.Resource[] { new org.springframework.core.io.ClassPathResource(&quot;persons.json&quot;) });&#10;        return factoryBean;&#10;    }" description="Person repository populator" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="prqdsl" value="com.querydsl.core.types.Predicate predicate = com.github.vanroy.springdata.querydsl.model.QPerson.person.firstName.equalsIgnoreCase(&quot;Barney&quot;);" description="Person repository QueryDSL" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_EXPRESSION" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="prspec" value="private static org.springframework.data.jpa.domain.Specification&lt;com.github.vanroy.springdata.specifications.model.Person&gt; personIsAdult() {&#10;        return (root, query, cb) -&gt; cb.greaterThanOrEqualTo(root.get(&quot;age&quot;), 18);&#10;    }&#10;&#10;    private static org.springframework.data.jpa.domain.Specification&lt;com.github.vanroy.springdata.specifications.model.Person&gt; personIsASimpson() {&#10;        return (root, query, cb) -&gt; cb.equal(root.get(&quot;lastName&quot;), &quot;Simpson&quot;);&#10;    }&#10;" description="Person repository specifications" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="pcstream" value="@javax.annotation.PostConstruct&#10;    public void startStreaming() {&#10;        repository.findBy().doOnNext(notificationService::sendMessage).subscribe();&#10;    }&#10;" description="Person controller streaming" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="pclist" value="return&#10;            reactor.core.publisher.Flux.merge(&#10;                repository.findByAgeGreaterThan(30),&#10;                repository.findByFirstName(&quot;Brian&quot;)&#10;            )&#10;            .distinct()&#10;            .collectList()&#10;            .block();" description="Person controller list" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="true" />
+    </context>
+  </template>
+</templateSet>
