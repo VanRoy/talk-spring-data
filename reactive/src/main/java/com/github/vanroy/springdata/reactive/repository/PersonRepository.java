@@ -14,7 +14,7 @@ import reactor.core.publisher.Flux;
  */
 public interface PersonRepository extends ReactiveCrudRepository<Person, UUID> {
 
-    @InfiniteStream// Use a tailable cursor
+    @InfiniteStream
     Flux<Person> findBy();
 
     Flux<Person> findByAgeGreaterThan(int age);
