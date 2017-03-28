@@ -1,0 +1,17 @@
+plugins {
+  id 'org.springframework.boot' version '1.5.1.RELEASE'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+
+  compile('org.springframework.boot:spring-boot-starter-data-cassandra')
+  compile('org.springframework.boot:spring-boot-starter-data-rest')
+
+  compileOnly('org.projectlombok:lombok')
+
+  testCompile('org.springframework.boot:spring-boot-starter-test')
+}
