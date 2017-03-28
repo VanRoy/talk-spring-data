@@ -36,6 +36,8 @@ public class BasicApplication implements CommandLineRunner {
 
         ConsoleOutput.write(this.personRepository.findByFirstName("Lisa"));
 
+        ConsoleOutput.write(this.personRepository.findByLastName("Simpson"));
+
         ConsoleOutput.write(this.personRepository.findByLastNameIgnoreCaseAndAgeGreaterThan("simpson", 20));
 	}
 
