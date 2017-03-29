@@ -1,4 +1,4 @@
-package com.github.vanroy.springdata.basics.output;
+package com.github.vanroy.springdata.tools.output;
 
 import org.springframework.boot.ansi.AnsiColor;
 import org.springframework.boot.ansi.AnsiOutput;

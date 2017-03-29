@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.github.vanroy.springdata.cassandra.model.Person;
-import com.github.vanroy.springdata.cassandra.output.ConsoleOutput;
 import com.github.vanroy.springdata.cassandra.repository.PersonRepository;
+import com.github.vanroy.springdata.tools.output.ConsoleOutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

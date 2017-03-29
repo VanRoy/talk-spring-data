@@ -10,6 +10,7 @@ dependencies {
 
 	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
     compile('com.fasterxml.jackson.core:jackson-databind')
+	compile project(':tools')
 
 	compile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
 

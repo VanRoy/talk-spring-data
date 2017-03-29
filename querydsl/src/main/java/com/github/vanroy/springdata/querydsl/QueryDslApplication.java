@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.github.vanroy.springdata.querydsl.model.Person;
 import com.github.vanroy.springdata.querydsl.model.QPerson;
-import com.github.vanroy.springdata.querydsl.output.ConsoleOutput;
 import com.github.vanroy.springdata.querydsl.repository.PersonRepository;
+import com.github.vanroy.springdata.tools.output.ConsoleOutput;
 import com.querydsl.core.types.Predicate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

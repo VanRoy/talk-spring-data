@@ -11,5 +11,7 @@ dependencies {
   compile('org.springframework.boot:spring-boot-starter-data-jpa')
   compile('com.h2database:h2')
 
+  compile project(':tools')
+
   testCompile('org.springframework.boot:spring-boot-starter-test')
 }

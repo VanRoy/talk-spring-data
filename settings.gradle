@@ -1,1 +1,1 @@
-include 'slides', 'basics', 'cassandra', 'rest', 'rest-cassandra', 'populator', 'audit', 'querydsl', 'specifications', 'reactive'
+include 'slides', 'tools', 'basics', 'cassandra', 'rest', 'rest-cassandra', 'populator', 'audit', 'querydsl', 'specifications', 'reactive'

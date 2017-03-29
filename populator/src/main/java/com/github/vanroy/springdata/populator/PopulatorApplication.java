@@ -1,7 +1,7 @@
 package com.github.vanroy.springdata.populator;
 
-import com.github.vanroy.springdata.populator.output.ConsoleOutput;
 import com.github.vanroy.springdata.populator.repository.PersonRepository;
+import com.github.vanroy.springdata.tools.output.ConsoleOutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
