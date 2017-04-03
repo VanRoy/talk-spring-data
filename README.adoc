@@ -1,1 +1,36 @@
-= Spring Data presentation
+Démonstration Spring Data
+=========================
+
+Ce projet à pour but de presenter les fonctionnalités de Spring Data.
+
+Il contient une presentation de quelques slides ainsi que plusieurs applications de demonstration.
+
+== Instructions
+
+=== Slides
+
+https://vanroy.github.io/talk-spring-data/
+
+=== Branches
+
+[options="header"]
+|=========================================
+| Dossier             | Fonctionnalité
+| basics              | Les bases de Spring Data
+| cassandra           | CRUD pour Cassandra
+| rest                | Exposition avec Spring Data REST
+| populator           | Chargement d'une base de données depuis un fichier JSON
+| audit               | Gestion de l'audit des changements
+| querydsl            | Intégration avec QueryDSL
+| specifications      | Gestion des "specifications" JPA
+| reactive            | Démo fonctionnalités réactive de Spring Data 2.0
+|=========================================
+
+=== Prérequis
+
+Cette démo necessite un JDK 8.
+
+=== Lancement de l'application
+```
+# ./gradlew :basics:bootRun
+```
