@@ -24,12 +24,11 @@ repositories {
 
 dependencies {
 
-  compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+  compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
   compile('org.springframework.boot:spring-boot-starter-web') {
     exclude module: 'spring-boot-starter-tomcat'
   }
   compile('org.springframework.boot:spring-boot-starter-undertow')
-  compile('org.mongodb:mongodb-driver-reactivestreams')
 
   compile('org.webjars:jquery:3.1.1-1')
   compile('org.webjars:bootstrap:3.3.7-1')
