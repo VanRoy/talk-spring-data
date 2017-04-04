@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+
+	<head>
+
+		<title>Spring Data : Une API, quinze possibilités</title>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<meta name="description" content="Spring Data Tools In Action @ Devoxx FR">
+		<meta name="author" content="Julien Roy">
+
+		<link rel="icon" href="css/images/favicon.jpeg" />
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/devoxxfr.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section data-state="intro">
+					<h1>Spring Data<br />Une API, quinze possibilités</h1>
+					<p style="margin-top:22%">Julien Roy <a href="http://twitter.com/nmartignole">@vanr0y</a></p>
+				</section>
+
+				<section>
+					<h2>Agenda</h2>
+					<ul>
+						<li>Fondamentaux Spring Data</li>
+						<li>Panorama des backends supportés</li>
+						<li>Démo</li>
+						<li>Bonus track</li>
+						<li>Nouveautés de la version 2.0</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fondamentaux</h2>
+					<ul>
+						<li class="fragment"><p>API commune</li>
+						<li class="fragment"><p>Implémentation CRUD</li>
+						<li class="fragment"><p>Requêtes dynamiques</li>
+						<li class="fragment"><p>Mapping des objects</li>
+						<li class="fragment"><p>Gestion des spécificités</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Backend Pivotal</h2>
+					<ul>
+						<li>JPA</li>
+						<li>KeyValue</li>
+						<li>MongoDB</li>
+						<li>LDAP</li>
+					</ul>
+					<ul>
+						<li>Redis</li>
+						<li>Apache Cassandra</li>
+						<li>Apache Solr</li>
+						<li>Gemfire</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Backend Communauté</h2>
+					<ul>
+						<li>Elasticsearch</li>
+						<li>Couchbase</li>
+						<li>Neo4j</li>
+						<li>JDBC</li>
+					</ul>
+					<ul>
+						<li>DynamoDB</li>
+						<li>Hazelcast</li>
+						<li>Aerospike</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Spring Data REST</h2>
+					<ul>
+						<li>Exposition RESTful</li>
+						<li>Support hypermedia</li>
+					</ul>
+				</section>
+
+				<section data-state="flash" align="center">
+					<h1>Démo</h1>
+				</section>
+
+				<section>
+					<h2>Bonus</h2>
+					<ul>
+						<li class="fragment">Repository populators</li>
+						<li class="fragment">Audit</li>
+						<li class="fragment">Querydsl support</li>
+						<li class="fragment">Specifications ( JPA 2 criteria )</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Spring Data Kay ( 2.0 )</h2>
+					<ul>
+						<li>Java 8</li>
+						<li>Spring 5</li>
+						<li>Support programmation reactive</li>
+						<ul>
+							<li>Compatible : Reactor, RxJava</li>
+							<li>Backends : MongoDB, Cassandra, Redis</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section data-state="intro">
+					<h1>Questions</h1>
+					<br/>
+					<p>Slides et démo sur GitHub : <br/> <a href="https://github.com/vanroy/ll">https://github.com/vanroy/talk-spring-data</a></p>
+				</section>
+
+			</div>
+
+			<div class="footer"><p>#DevoxxFR</p><img align="right" src="css/images/logo-texte-devoxx-france-400.png" /></div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: false,
+				width: 1280,
+				height: 720,
+				slideNumber: true,
+				margin: 0.0,
+
+				// Optional reveal.js plugins
+				dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
