@@ -1,9 +1,9 @@
 Démonstration Spring Data
 =========================
 
-Ce projet à pour but de presenter les fonctionnalités de Spring Data.
+Ce projet a pour but de presenter les fonctionnalités de Spring Data.
 
-Il contient une presentation de quelques slides ainsi que plusieurs applications de demonstration.
+Il contient une presentation de quelques slides ainsi que plusieurs applications de démonstration.
 
 == Instructions
 
