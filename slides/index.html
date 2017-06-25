@@ -32,14 +32,28 @@
 
 	<body>
 
-		<div class="reveal">
+	<div class="top-banner" style="display:none;">
+		<div class="top-banner-title"><h1>Spring Data, Une API, quinze possibilités</h1></div>
+		<div class="top-banner-inner"></div>
+	</div>
+
+	<div class="right-banner">
+		<div class="right-banner-top">
+			<div>Julien Roy</div>
+			<div>Architecte Java</div>
+			<div>@vanr0y</div>
+		</div>
+		<img class="right-banner-bottom" src="./css/images/logo-ekino-white.png" width="120px"/>
+	</div>
+
+	<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
 				<section data-state="intro">
 					<h1>Spring Data<br />Une API, quinze possibilités</h1>
-					<p style="margin-top:22%">Julien Roy <a href="https://twitter.com/vanr0y">@vanr0y</a></p>
+					<p>Julien Roy <a href="https://twitter.com/vanr0y">@vanr0y</a></p>
 					<p>Architecte Java @ <a href="https://www.ekino.com">ekino.</a></p>
 				</section>
 
@@ -121,12 +135,13 @@
 				<section>
 					<h2>Spring Data Kay ( 2.0 )</h2>
 					<ul>
-						<li>Java 8</li>
-						<li>Spring 5</li>
+						<li>Requiert Java 8 et Spring 5</li>
+						<li>Compatible Java 9</li>
+						<li>Support Elasticsearch 5.4</li>
 						<li>Support programmation reactive</li>
 						<ul>
-							<li>Compatible : Reactor, RxJava</li>
-							<li>Backends : MongoDB, Cassandra, Redis</li>
+							<li>Compatible : Reactor, RxJava 1, RxJava 2</li>
+							<li>Backends : MongoDB, Cassandra, Couchbase, Redis</li>
 						</ul>
 					</ul>
 				</section>
@@ -147,13 +162,16 @@
 
 		<script>
 
+      var theme = Reveal.getQueryHash().theme;
+
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: false,
+
+				controls: (theme == "ekino"),
 				progress: true,
 				history: true,
-				center: false,
+				center: (theme == "ekino"),
 				width: 1280,
 				height: 720,
 				slideNumber: true,
@@ -167,6 +185,13 @@
                     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+
+      var topBannerFn = function( event ) {
+        document.querySelector( '.top-banner' ).style.display = Reveal.isFirstSlide() ? 'none' : '';
+      };
+
+      Reveal.addEventListener( 'ready', topBannerFn);
+      Reveal.addEventListener( 'slidechanged', topBannerFn);
 
 		</script>
 

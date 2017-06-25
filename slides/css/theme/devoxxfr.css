@@ -32,6 +32,9 @@ body {
   line-height: 1.3;
   font-weight: inherit; }
 
+html.intro .reveal .slides section p:first-of-type {
+  margin-top: 22%; }
+
 /*********************************************
  * HEADERS
  *********************************************/
@@ -465,3 +468,7 @@ html.light .footer p {
   font-size: 0.2em;
   /*  top: 676px;*/
   /*  top: 996px; */}
+
+.top-banner, .right-banner {
+  display: none;
+}

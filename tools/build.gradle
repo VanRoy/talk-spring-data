@@ -7,6 +7,6 @@ repositories {
 }
 
 dependencies {
-  compile('org.springframework.boot:spring-boot:1.5.1.RELEASE')
+  compile('org.springframework.boot:spring-boot:1.5.4.RELEASE')
 }
 

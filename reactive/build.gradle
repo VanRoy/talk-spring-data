@@ -1,11 +1,10 @@
 buildscript {
   ext {
-    springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+    springBootVersion = '2.0.0.M2'
   }
   repositories {
     mavenCentral()
-    maven { url "http://repo.spring.io/milestone" }
-    maven { url "http://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
   }
   dependencies {
     classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -14,13 +13,14 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
-
+apply plugin: 'io.spring.dependency-management'
 
 repositories {
   mavenCentral()
-  maven { url "https://repo.spring.io/snapshot" }
   maven { url "https://repo.spring.io/milestone" }
 }
+
+ext['spring-data-releasetrain.version'] = 'Kay-M4'
 
 dependencies {
 
