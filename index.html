@@ -8,13 +8,13 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<meta name="description" content="Spring Data Tools In Action @ Devoxx FR">
+		<meta name="description" content="Spring Data, Une API, quinze possibilités">
 		<meta name="author" content="Julien Roy">
 
 		<link rel="icon" href="css/images/favicon.jpeg" />
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/devoxxfr.css" id="theme">
+		<link rel="stylesheet" href="css/theme/pikestreet.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -32,15 +32,15 @@
 
 	<body>
 
-		<div class="reveal">
+	<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
 				<section data-state="intro">
 					<h1>Spring Data<br />Une API, quinze possibilités</h1>
-					<p style="margin-top:22%">Julien Roy <a href="https://twitter.com/vanr0y">@vanr0y</a></p>
-					<p>Architecte Java @ <a href="https://www.ekino.com">ekino.</a></p>
+					<p>Julien Roy <a href="https://twitter.com/vanr0y">@vanr0y</a></p>
+					<p>Architecte Java @ <a href="https://bankin.com">Bankin'</a></p>
 				</section>
 
 				<section>
@@ -50,18 +50,18 @@
 						<li>Panorama des backends supportés</li>
 						<li>Démo</li>
 						<li>Bonus track</li>
-						<li>Nouveautés de la version 2.0</li>
+						<li>Réactive stack</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>Fondamentaux</h2>
 					<ul>
-						<li class="fragment"><p>API commune</li>
-						<li class="fragment"><p>Implémentation CRUD</li>
-						<li class="fragment"><p>Requêtes dynamiques</li>
-						<li class="fragment"><p>Mapping des objects</li>
-						<li class="fragment"><p>Gestion des spécificités</li>
+						<li class="fragment">API commune</li>
+						<li class="fragment">Implémentation CRUD</li>
+						<li class="fragment">Requêtes dynamiques</li>
+						<li class="fragment">Mapping des objects</li>
+						<li class="fragment">Gestion des spécificités</li>
 					</ul>
 				</section>
 
@@ -69,6 +69,7 @@
 					<h2>Backend Pivotal</h2>
 					<ul>
 						<li>JPA</li>
+						<li>JDBC</li>
 						<li>KeyValue</li>
 						<li>MongoDB</li>
 						<li>LDAP</li>
@@ -76,6 +77,7 @@
 					<ul>
 						<li>Redis</li>
 						<li>Apache Cassandra</li>
+						<li>Apache Geode</li>
 						<li>Apache Solr</li>
 						<li>Gemfire</li>
 					</ul>
@@ -87,12 +89,17 @@
 						<li>Elasticsearch</li>
 						<li>Couchbase</li>
 						<li>Neo4j</li>
-						<li>JDBC</li>
+						<li>Azure Cosmos DB</li>
+						<li>GCP Datastore</li>
+						<li>GCP Spanner</li>
 					</ul>
 					<ul>
 						<li>DynamoDB</li>
 						<li>Hazelcast</li>
 						<li>Aerospike</li>
+						<li>ArangoDB</li>
+						<li>Vault</li>
+						<li>Jest</li>
 					</ul>
 				</section>
 
@@ -119,27 +126,30 @@
 				</section>
 
 				<section>
-					<h2>Spring Data Kay ( 2.0 )</h2>
+					<h2>Réactive stack</h2>
 					<ul>
-						<li>Java 8</li>
-						<li>Spring 5</li>
-						<li>Support programmation reactive</li>
-						<ul>
-							<li>Compatible : Reactor, RxJava</li>
-							<li>Backends : MongoDB, Cassandra, Redis</li>
-						</ul>
+						<li>Requiert Spring Data 2.x</li>
+						<li>Compatible Spring Reactor et RxJava 2</li>
+						<li>Backends :
+							<ul>
+								<li>MongoDB</li>
+								<li>Cassandra</li>
+								<li>Couchbase</li>
+								<li>Redis</li>
+								<li>R2DBC ( Incubation )</li>
+							</ul>
+						</li>
 					</ul>
 				</section>
 
 				<section data-state="intro">
 					<h1>Questions</h1>
 					<br/>
-					<p>Slides et démo sur GitHub : <br/> <a href="https://github.com/vanroy/ll">https://github.com/vanroy/talk-spring-data</a></p>
+					<p>Slides et démo sur GitHub : <br/> <a href="https://github.com/vanroy/talk-spring-data">https://github.com/vanroy/talk-spring-data</a></p>
 				</section>
 
 			</div>
 
-			<div class="footer"><p>#DevoxxFR</p><img align="right" src="css/images/logo-texte-devoxx-france-400.png" /></div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
@@ -150,10 +160,11 @@
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: false,
+
+				controls: true,
 				progress: true,
 				history: true,
-				center: false,
+				center: true,
 				width: 1280,
 				height: 720,
 				slideNumber: true,
@@ -167,6 +178,13 @@
                     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+
+      var topBannerFn = function( event ) {
+        document.querySelector( '.top-banner' ).style.display = Reveal.isFirstSlide() ? 'none' : '';
+      };
+
+      Reveal.addEventListener( 'ready', topBannerFn);
+      Reveal.addEventListener( 'slidechanged', topBannerFn);
 
 		</script>
 

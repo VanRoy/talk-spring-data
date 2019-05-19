@@ -486,6 +486,8 @@
      */
     function setupDOM() {
 
+        dom.theme = document.querySelector( '#theme' );
+
         // Prevent transitions while we're loading
         dom.slides.classList.add( 'no-transition' );
 
@@ -1058,6 +1060,18 @@
                 element.classList.add( 'visible' );
                 element.classList.remove( 'current-fragment' );
             } );
+        }
+
+        // Load the theme in the config, if it's not already loaded
+        if( config.theme && dom.theme ) {
+            var themeURL = dom.theme.getAttribute( 'href' );
+            var themeFinder = /[^\/]*?(?=\.css)/;
+            var themeName = themeURL.match(themeFinder)[0];
+
+            if(  config.theme !== themeName ) {
+              themeURL = themeURL.replace(themeFinder, config.theme);
+              dom.theme.setAttribute( 'href', themeURL );
+            }
         }
 
         sync();
