@@ -1,11 +1,11 @@
 package com.github.vanroy.springdata.rest.repository;
 
-import java.util.UUID;
-
 import com.github.vanroy.springdata.rest.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+import java.util.UUID;
 
 /**
  * Person repository.

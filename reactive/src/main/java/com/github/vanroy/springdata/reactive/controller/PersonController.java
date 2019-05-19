@@ -1,19 +1,12 @@
 package com.github.vanroy.springdata.reactive.controller;
 
-import java.util.List;
-import javax.annotation.PostConstruct;
-
 import com.github.vanroy.springdata.reactive.model.Person;
 import com.github.vanroy.springdata.reactive.repository.PersonRepository;
-import com.github.vanroy.springdata.reactive.service.NotificationService;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 /**
  * Controller to expose new Person with SSE.
@@ -25,34 +18,29 @@ import reactor.core.publisher.Flux;
 public class PersonController {
 
     private final PersonRepository repository;
-    private final NotificationService<Person> notificationService;
 
-    PersonController(PersonRepository repository, NotificationService<Person> notificationService) {
+    PersonController(PersonRepository repository) {
         this.repository = repository;
-        this.notificationService = notificationService;
-    }
-
-    @PostConstruct
-    public void startStreaming() {
-        repository.findBy().doOnNext(notificationService::sendMessage).subscribe();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody Person p) {
-        repository.save(p).block();
+    public Mono<Person> create(@RequestBody Person person) {
+        return repository.save(person);
     }
 
     @GetMapping
-    public List<Person> search() {
+    public Flux<Person> search() {
         return
-            Flux.merge(
-                repository.findByAgeGreaterThan(30),
-                repository.findByFirstName("Brian")
-            )
-            .distinct()
-            .collectList()
-            .block();
+                Flux.merge(
+                        repository.findByAgeGreaterThan(30),
+                        repository.findByFirstName("Brian")
+                ).distinct();
+    }
+
+    @GetMapping(path = "/sse", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<Person> streamFlux() {
+        return repository.findBy();
     }
 
 }

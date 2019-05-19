@@ -1,10 +1,10 @@
 package com.github.vanroy.springdata.basics.repository;
 
-import java.util.UUID;
-
 import com.github.vanroy.springdata.basics.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
+import java.util.UUID;
 
 /**
  * Person repository.

@@ -2,9 +2,9 @@ package com.github.vanroy.springdata.cassandra.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.cassandra.core.PrimaryKeyType;
-import org.springframework.data.cassandra.mapping.PrimaryKeyColumn;
-import org.springframework.data.cassandra.mapping.Table;
+import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
+import org.springframework.data.cassandra.core.mapping.Table;
 
 /**
  * Model represent a Person.

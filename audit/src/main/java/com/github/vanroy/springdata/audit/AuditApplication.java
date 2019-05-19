@@ -1,9 +1,5 @@
 package com.github.vanroy.springdata.audit;
 
-import java.util.Arrays;
-import java.util.List;
-import javax.annotation.PostConstruct;
-
 import com.github.vanroy.springdata.audit.model.Person;
 import com.github.vanroy.springdata.audit.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+
+import javax.annotation.PostConstruct;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 @EnableJpaAuditing
@@ -23,7 +24,7 @@ public class AuditApplication {
 
     @Bean
     AuditorAware auditor() {
-        return () -> "admin";
+        return () -> Optional.of("admin");
     }
 
     @Autowired
@@ -39,6 +40,6 @@ public class AuditApplication {
 
     @PostConstruct
     void init() {
-        personRepository.save(SIMPSONS);
+        personRepository.saveAll(SIMPSONS);
     }
 }

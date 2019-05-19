@@ -1,8 +1,5 @@
 package com.github.vanroy.springdata.querydsl;
 
-import java.util.Arrays;
-import java.util.List;
-
 import com.github.vanroy.springdata.querydsl.model.Person;
 import com.github.vanroy.springdata.querydsl.model.QPerson;
 import com.github.vanroy.springdata.querydsl.repository.PersonRepository;
@@ -12,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 public class QueryDslApplication implements CommandLineRunner {
@@ -30,7 +30,7 @@ public class QueryDslApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-	    personRepository.save(SIMPSONS);
+	    personRepository.saveAll(SIMPSONS);
 
         Predicate predicate = QPerson.person.firstName.equalsIgnoreCase("Barney");
 

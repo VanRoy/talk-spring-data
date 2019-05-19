@@ -1,14 +1,14 @@
 package com.github.vanroy.springdata.rest;
 
-import java.util.Arrays;
-import java.util.List;
-import javax.annotation.PostConstruct;
-
 import com.github.vanroy.springdata.rest.model.Person;
 import com.github.vanroy.springdata.rest.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import javax.annotation.PostConstruct;
+import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 public class RestApplication {
@@ -30,6 +30,6 @@ public class RestApplication {
 
 	@PostConstruct
 	void init() {
-		personRepository.save(SIMPSONS);
+		personRepository.saveAll(SIMPSONS);
 	}
 }

@@ -1,8 +1,8 @@
 package com.github.vanroy.springdata.specifications.model;
 
-import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.UUID;
 
 /**
  * Model represent a Person.

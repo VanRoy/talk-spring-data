@@ -1,6 +1,8 @@
 plugins {
-  id 'org.springframework.boot' version '1.5.4.RELEASE'
-  id 'com.ewerk.gradle.plugins.querydsl' version '1.0.8'
+  id 'java'
+  id 'org.springframework.boot' version '2.1.5.RELEASE'
+  id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+  id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
 }
 
 repositories {
@@ -10,8 +12,9 @@ repositories {
 dependencies {
 
   compile('org.springframework.boot:spring-boot-starter-data-jpa')
-  compile('com.querydsl:querydsl-jpa:4.1.4')
-  compile('com.querydsl:querydsl-apt:4.1.4')
+  compile('com.querydsl:querydsl-jpa:4.2.1')
+  compile('com.querydsl:querydsl-apt:4.2.1')
+  annotationProcessor('com.querydsl:querydsl-apt:4.2.1')
   compile project(':tools')
 
   compile('com.h2database:h2')
@@ -19,6 +22,11 @@ dependencies {
   testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
+compileQuerydsl {
+  options.annotationProcessorPath = configurations.querydsl
+}
+
 querydsl {
+  library = 'com.querydsl:querydsl-apt:4.2.1'
   jpa = true
 }

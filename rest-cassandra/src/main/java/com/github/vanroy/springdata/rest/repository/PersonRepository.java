@@ -3,7 +3,6 @@ package com.github.vanroy.springdata.rest.repository;
 import com.github.vanroy.springdata.rest.model.Person;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.data.cassandra.repository.Query;
-import org.springframework.data.cassandra.repository.TypedIdCassandraRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
@@ -12,7 +11,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * @author Julien Roy
  */
 @RepositoryRestResource
-public interface PersonRepository extends TypedIdCassandraRepository<Person, String> {
+public interface PersonRepository extends CassandraRepository<Person, String> {
 
     @Query("SELECT * FROM person WHERE lastName = ?0 ALLOW FILTERING")
     Iterable<Person> findByLastName(@Param("lastName") String lastName);

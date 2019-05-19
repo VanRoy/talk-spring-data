@@ -8,7 +8,7 @@ import org.springframework.data.cassandra.repository.Query;
  * Person repository.
  * @author Julien Roy
  */
-public interface PersonRepository extends CassandraRepository<Person> {
+public interface PersonRepository extends CassandraRepository<Person, String> {
 
     @Query("SELECT firstName, age FROM person WHERE lastName = ?0")
     Iterable<Person> findByLastName(String lastName);

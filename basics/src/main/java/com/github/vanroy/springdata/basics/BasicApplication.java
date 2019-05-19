@@ -1,8 +1,5 @@
 package com.github.vanroy.springdata.basics;
 
-import java.util.Arrays;
-import java.util.List;
-
 import com.github.vanroy.springdata.basics.model.Person;
 import com.github.vanroy.springdata.basics.repository.PersonRepository;
 import com.github.vanroy.springdata.tools.output.ConsoleOutput;
@@ -10,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 public class BasicApplication implements CommandLineRunner {
@@ -28,7 +28,7 @@ public class BasicApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-	    personRepository.save(SIMPSONS);
+	    personRepository.saveAll(SIMPSONS);
 
         ConsoleOutput.write(this.personRepository.findAll());
 
